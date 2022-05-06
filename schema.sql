@@ -20,24 +20,10 @@ CREATE TABLE "passenger_registry" (
      )
 );
 
-CREATE TABLE "passenger_class" (
-    "class_id" varchar   NOT NULL,
-    "class_name" varchar   NOT NULL,
-    CONSTRAINT "pk_passenger_class" PRIMARY KEY (
-        "class_id"
-     )
-);
-
 CREATE TABLE "embarked" (
     "port_id" varchar   NOT NULL,
-    "port_name" varchar   NOT NULL,
-    CONSTRAINT "pk_embarked" PRIMARY KEY (
-        "port_id"
-     )
+    "port_name" varchar   NOT NULL
 );
-
-ALTER TABLE "passenger_registry" ADD CONSTRAINT "fk_passenger_registry_pclass" FOREIGN KEY("pclass")
-REFERENCES "passenger_class" ("class_id");
 
 ALTER TABLE "passenger_registry" ADD CONSTRAINT "fk_passenger_registry_embarked" FOREIGN KEY("embarked")
 REFERENCES "embarked" ("port_id");
