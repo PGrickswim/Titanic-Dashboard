@@ -1,12 +1,12 @@
 # Technologies Used
 ## Data Cleaning and Analysis
-Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python.
+Our resources will come from Kaggle in the form of CSV files.
 
 ## Database Storage
-Mongo is the database we intend to use, and we will integrate Flask to display the data.
+pgAdmin is going to act as our primary database management, with Javascript acting as an interactive dashboard.
 
 ## Machine Learning
-SciKitLearn is the ML library we'll be using to create a classifier. Our training and testing setup is ___. Extra ML verbiage here.
+We'll be using a random forest machine learning model with mlenv to run statistical analysis to see how different groups faired based on factors such as age, gender, socio-economic status, etc. We are hoping to add a section of our dashboard that allows users to input their own information and generate their probability of survival.
 
 ## Dashboard
 In addition to using a Flask template, we will also integrate D3.js for a fully functioning and interactive dashboard. It will be hosted on ___.
