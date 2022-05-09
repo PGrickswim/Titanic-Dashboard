@@ -1,6 +1,6 @@
 # Technologies Used
 ## Data Cleaning and Analysis
-Our resources will come from Kaggle in the form of CSV files.
+Our resources will come from the dataset contained in the ["stablelearner" r-package](https://search.r-project.org/CRAN/refmans/DALEX/html/titanic.html#:~:text=According%20to%20the%20website%201317,for%20a%20few%20regular%20passengers.) and stored as [CSV files](Resources/titanic.csv).
 
 ## Database Storage
 pgAdmin is going to act as our primary database management, with Javascript acting as an interactive dashboard.
