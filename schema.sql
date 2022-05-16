@@ -3,28 +3,30 @@
 
 
 CREATE TABLE "passenger_registry" (
-    "passenger_id" int   NOT NULL,
-    "survived" varchar   NOT NULL,
-    "pclass" varchar   NOT NULL,
     "name" varchar   NOT NULL,
-    "sex" varchar   NOT NULL,
+    "gender" varchar   NOT NULL,
     "age" int   NOT NULL,
+    "class" varchar   NOT NULL,
+    "embarked" varchar   NOT NULL,
+    "country" varchar   NOT NULL,
+    "ticketno" int   NOT NULL,
+    "fare" int   NOT NULL,
     "sibsp" int   NOT NULL,
     "parch" int   NOT NULL,
-    "ticket" int   NOT NULL,
-    "fare" int   NOT NULL,
-    "cabin" int   NOT NULL,
-    "embarked" varchar   NOT NULL,
+    "survived" varchar   NOT NULL,
     CONSTRAINT "pk_passenger_registry" PRIMARY KEY (
-        "passenger_id"
+        "name"
      )
 );
 
 CREATE TABLE "embarked" (
     "port_id" varchar   NOT NULL,
-    "port_name" varchar   NOT NULL
+    "port_name" varchar   NOT NULL,
+    CONSTRAINT "pk_embarked" PRIMARY KEY (
+        "port_id"
+     )
 );
 
-ALTER TABLE "passenger_registry" ADD CONSTRAINT "fk_passenger_registry_embarked" FOREIGN KEY("embarked")
-REFERENCES "embarked" ("port_id");
+ALTER TABLE "embarked" ADD CONSTRAINT "fk_embarked_port_id" FOREIGN KEY("port_id")
+REFERENCES "passenger_registry" ("embarked");
 
