@@ -130,3 +130,5 @@ dmypy.json
 
 #Files
 Notebooks/config.py
+Notebooks/kitchens_flask_model.ipynb
+webapp/*
