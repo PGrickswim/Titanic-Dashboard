@@ -14,3 +14,39 @@ We will run statistical analysis to see how different groups faired based on fac
 
 ## Communication Protocols
 We plan to work asynchronously and use class times to go over what each member is working on, including walkthroughs of how tasks were completed. We will be communicating through slack and using Saturday morning sessions to troubleshoot on an as-needed basis.
+
+## Importing titanic.csv into PgAdmin
+* Create a database named ```titanic_project``` and ensure it is selected with an active connection. 
+* Add a ```config.py``` file to your Notebooks folder in the group repo. (The file is otherwise hidden in .gitignore.) It should read:
+    ```
+    db_password = '[insert your password here]'
+    ```
+* Open a command line terminal in this same Notebooks folder and run ```jupyter notebook```
+* Open the ```create_database.ipynb``` file and execute the four cells 
+* Refresh your database. You should see a new table ```passenger_registry```
+    * To confirm the data imported properly, run the following query: 
+        ```
+        select * from passenger_registry where country='United States';
+        ```
+        You should see 264 records returned. 
+
+## Flask: Running the application locally
+* Run the following two commands:
+    ```
+    export FLASK_APP=app
+    ```
+    ```
+    export FLASK_ENV=development
+    ```
+    This should set up your localhost to run the app. Next, run:
+    ```
+    flask run
+    ```
+<!-- * Navigate to the 'children-of-jupyter' repo
+* Right-click and open 'Git Bash here'
+* Run this command in the terminal:
+    ```
+    python app.py
+    ```
+* You should see a message that the Flask application is running on localhost
+* Enter the address (usually http://127.0.0.1:5000/) in  your browser to view the application -->
