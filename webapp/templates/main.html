@@ -45,6 +45,7 @@
             <div class="col-md-4"></div>
         </div>
     </div>
+    
     <!-- Webapp for passing user input to model -->
     <div class="container-fluid">
         <div class="row">
@@ -118,29 +119,23 @@
                     </fieldset>
                 </form>
             </div>
-            <div class="col-md-4"></div>
-        </div>
-    </div>
-
-    <!-- Prints model prediction from user input form -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4"></div>
             <div class="col-md-4">
+                <!-- Prints model prediction from user input form -->                
                 <div class="result">
-                    <h2>Results</h2>
-                        {% if result %}
-                            {% for variable, value in original_input.items() %}
-                                <b>{{ variable }}</b> : {{ value }}
-                                <br>
-                            {% endfor %}
+                <h2>Results</h2>
+                    {% if result %}
+                        {% for variable, value in original_input.items() %}
+                            <b>{{ variable }}</b> : {{ value }}
                             <br>
-                            <p style="font-size:50px">{{ result }}</p>
-                        {% else %}
-                        <h4> Choose some options and click submit</h4>
-                        {% endif %}
+                        {% endfor %}
+                        <br>
+                        <p style="font-size:50px">{{ result }}</p>
+                    {% else %}
+                    <h4> Choose some options and click submit</h4>
+                    {% endif %}
                 </div>
             </div>
-            <div class="col-md-4"></div>
+        </div>
+    </div>
 </body>
 </html>

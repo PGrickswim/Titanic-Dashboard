@@ -1,6 +1,8 @@
 form {
     margin: auto;
     width: 35%;
+    border-color: black;
+    border-width: thick;
 }
 
 .jumbotron {
@@ -12,5 +14,5 @@ form {
 .result {
     margin: auto;
     width: 35%;
-    border: 1px solid #ccc;
+    text-align: left;
 }
