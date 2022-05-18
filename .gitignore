@@ -130,5 +130,4 @@ dmypy.json
 
 #Files
 Notebooks/config.py
-Notebooks/kitchens_flask_model.ipynb
-webapp/*
+Notebooks/Titanic-decision-tree-encoding-test.ipynb

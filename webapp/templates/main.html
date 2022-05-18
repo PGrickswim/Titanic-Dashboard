@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <div>
+        <form action="{{ url_for('main') }}" method="POST">
+            <fieldset>
+                <legend>Input values:</legend>
+                Gender:
+                <br>
+                <input name="gender" id="male" value="1" type="radio" checked>
+                <label for="male">male</label><br>
+                <input name="gender" id="female" value="0" type="radio">
+                <label for="female">female</label><br>
+                <br>
+                <br> Age:
+                <br>
+                <input name="age" type="number" value="22" required>
+                <br>
+                <br> Boarding Class:
+                <br>
+                <input name="board_class" id="1st" value="1st" type="radio" checked>
+                <label for="1st">1st Class</label><br>
+                <input name="board_class" id="2nd" value="2nd" type="radio">
+                <label for="2nd">2nd Class</label><br>
+                <input name="board_class" id="3rd" value="3rd" type="radio">
+                <label for="3rd">3rd Class</label><br>
+                <input name="board_class" id="crew" value="crew" type="radio">
+                <label for="crew">Part of the ship, part of the crew...</label><br>
+                <br>
+                <br> Embarked:
+                <br>
+                <input name="embarked" id="B" value="B" type="radio" checked>
+                <label for="B">Belfast, Ireland</label><br>
+                <input name="embarked" id="C" value="C" type="radio">
+                <label for="C">Cherbourg, France</label><br>
+                <input name="embarked" id="Q" value="Q" type="radio">
+                <label for="Q">Queenstown, Ireland</label><br>
+                <input name="embarked" id="S" value="S" type="radio">
+                <label for="S">Southampton, England</label><br>            
+                <br>
+                <br> Country:
+                <br>
+                <input name="country" id="AFR" value="AFR" type="radio" checked>
+                <label for="AFR">Africa</label><br>
+                <input name="country" id="ASA" value="ASA" type="radio">
+                <label for="ASA">Asia</label><br>
+                <input name="country" id="AUS" value="AUS" type="radio">
+                <label for="AUS">Australia</label><br>
+                <input name="country" id="ENG" value="ENG" type="radio">
+                <label for="ENG">England</label><br>
+                <input name="country" id="EUR" value="EUR" type="radio">
+                <label for="EUR">Europe</label><br>
+                <input name="country" id="FIN" value="FIN" type="radio">
+                <label for="FIN">Finland</label><br>
+                <input name="country" id="IRL" value="IRL" type="radio">
+                <label for="IRL">Ireland</label><br>
+                <input name="country" id="LBN" value="LBN" type="radio">
+                <label for="LBN">Lebanon</label><br>
+                <input name="country" id="NAM" value="NAM" type="radio">
+                <label for="NAM">North America</label><br>
+                <input name="country" id="SAM" value="SAM" type="radio">
+                <label for="SAM">South America</label><br>
+                <input name="country" id="SWE" value="SWE" type="radio">
+                <label for="SWE">Sweden</label><br>
+                <input name="country" id="USA" value="USA" type="radio">
+                <label for="USA">United States of America</label>          
+                <br>
+                <br>
+                <input type="submit">
+            </fieldset>
+        </form>
+    </div>
+    
+    <div class="result">
+    <h2>Results</h2>
+        {% if result %}
+            {% for variable, value in original_input.items() %}
+                <b>{{ variable }}</b> : {{ value }}
+                <br>
+            {% endfor %}
+            <br>
+            <p style="font-size:50px">{{ result }}</p>
+        {% else %}
+        <h4> Choose some options and click submit</h4>
+        {% endif %}
+    </div>
+</body>
+</html>
