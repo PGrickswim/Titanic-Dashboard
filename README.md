@@ -31,17 +31,22 @@ We plan to work asynchronously and use class times to go over what each member i
         You should see 264 records returned. 
 
 ## Flask: Running the application locally
-* Run the following two commands:
+* Ensure that your development environment is active with
     ```
-    export FLASK_APP=app
+    conda activate [development-environment-name]
     ```
+* If you haven't already, install Flask with the following command
     ```
-    export FLASK_ENV=development
+    pip install flask
     ```
-    This should set up your localhost to run the app. Next, run:
+* Navigate to the /webapp folder of the repo. Run the following command:
     ```
     flask run
     ```
+
+    The app should open on a localhost (likely http://127.0.0.1:5000/). Copy this address into your browser and enjoy!
+* When you finish using the app, you can run ```Ctrl + C``` in the terminal to end the local connection. 
+    
 <!-- * Navigate to the 'children-of-jupyter' repo
 * Right-click and open 'Git Bash here'
 * Run this command in the terminal:
