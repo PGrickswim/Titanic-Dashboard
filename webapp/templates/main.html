@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body class="bg-light">
+    <div class="wrapper">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <a class="navbar-brand" href="main.html">Titanic Dashboard</a>
+        </nav>
+    </div>
+    <div class="jumbotron">
+        <h1 class="display-4">Titanic Dashboard</h1>
+    </div>
+
+    <!-- Text talking about Titanic and lead in to analysis -->
+    <div class="jumbotron">
+        <p>The RMS Titanic was an iconic, heralded passenger liner that sunk over the North Atlantic ocean on April 15, 1912. When the ship - which weighed over 100 million pounds and was the largest in the world at the time - met its fate, over 68% of the passengers and crew perished; however, over 700 of the two-thousand-plus passengers were saved and survived the wreck. Survival depended on many factors, but some factors may have influenced survival more than others. Below, create a fictional character on the Titanic ship, and based on information such as class, sex, and more, find out if our unique model predicts that you would have survived or perished if you were on the Titanic's ill-fated maiden voyage!</p>
+    </div>
+
+    <!-- For Kira's Tableau -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+    <!-- For Erika's R Analysis -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    
+    <!-- Webapp for passing user input to model -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form action="{{ url_for('main') }}" method="POST">
+                    <fieldset>
+                        <legend>Model Inputs:</legend>
+                        Gender:
+                        <br>
+                        <input name="gender" id="male" value="1" type="radio" checked>
+                        <label for="male">male</label><br>
+                        <input name="gender" id="female" value="0" type="radio">
+                        <label for="female">female</label><br>
+                        <br>
+                        <br> Age:
+                        <br>
+                        <input name="age" type="number" value="22" required>
+                        <br>
+                        <br> Boarding Class:
+                        <br>
+                        <input name="board_class" id="1st" value="1st" type="radio" checked>
+                        <label for="1st">1st Class</label><br>
+                        <input name="board_class" id="2nd" value="2nd" type="radio">
+                        <label for="2nd">2nd Class</label><br>
+                        <input name="board_class" id="3rd" value="3rd" type="radio">
+                        <label for="3rd">3rd Class</label><br>
+                        <input name="board_class" id="crew" value="crew" type="radio">
+                        <label for="crew">Part of the ship, part of the crew...</label><br>
+                        <br>
+                        <br> Embarked:
+                        <br>
+                        <input name="embarked" id="B" value="B" type="radio" checked>
+                        <label for="B">Belfast, Ireland</label><br>
+                        <input name="embarked" id="C" value="C" type="radio">
+                        <label for="C">Cherbourg, France</label><br>
+                        <input name="embarked" id="Q" value="Q" type="radio">
+                        <label for="Q">Queenstown, Ireland</label><br>
+                        <input name="embarked" id="S" value="S" type="radio">
+                        <label for="S">Southampton, England</label><br>            
+                        <br>
+                        <br> Country:
+                        <br>
+                        <input name="country" id="AFR" value="AFR" type="radio" checked>
+                        <label for="AFR">Africa</label><br>
+                        <input name="country" id="ASA" value="ASA" type="radio">
+                        <label for="ASA">Asia</label><br>
+                        <input name="country" id="AUS" value="AUS" type="radio">
+                        <label for="AUS">Australia</label><br>
+                        <input name="country" id="ENG" value="ENG" type="radio">
+                        <label for="ENG">England</label><br>
+                        <input name="country" id="EUR" value="EUR" type="radio">
+                        <label for="EUR">Europe</label><br>
+                        <input name="country" id="FIN" value="FIN" type="radio">
+                        <label for="FIN">Finland</label><br>
+                        <input name="country" id="IRL" value="IRL" type="radio">
+                        <label for="IRL">Ireland</label><br>
+                        <input name="country" id="LBN" value="LBN" type="radio">
+                        <label for="LBN">Lebanon</label><br>
+                        <input name="country" id="NAM" value="NAM" type="radio">
+                        <label for="NAM">North America</label><br>
+                        <input name="country" id="SAM" value="SAM" type="radio">
+                        <label for="SAM">South America</label><br>
+                        <input name="country" id="SWE" value="SWE" type="radio">
+                        <label for="SWE">Sweden</label><br>
+                        <input name="country" id="USA" value="USA" type="radio">
+                        <label for="USA">United States of America</label>          
+                        <br>
+                        <br>
+                        <input type="submit">
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <!-- Prints model prediction from user input form -->                
+                <div class="result">
+                <h2>Results</h2>
+                    {% if result %}
+                        {% for variable, value in original_input.items() %}
+                            <b>{{ variable }}</b> : {{ value }}
+                            <br>
+                        {% endfor %}
+                        <br>
+                        <p style="font-size:50px">{{ result }}</p>
+                    {% else %}
+                    <h4> Choose some options and click submit</h4>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

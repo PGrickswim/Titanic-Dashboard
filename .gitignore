@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Files
+Notebooks/config.py
+Notebooks/Titanic-decision-tree-encoding-test.ipynb
