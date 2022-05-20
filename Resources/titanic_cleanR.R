@@ -27,6 +27,7 @@ titanicR$survived <- as.factor(titanicR$survived)
 #table(titanicR$embarked)
 
 #RandomForest
+#https://www.youtube.com/watch?v=Zx2TguRHrJE
 survived.equation <- "survived ~ class + gender + age + embarked"
 survived.formula <- as.formula(survived.equation)
 install.packages("randomForest")
@@ -56,6 +57,7 @@ ggplot(data = titanicR, aes(x = class, fill = factor(survived))) +
   theme_bw()
 
 # First we will look at the relationship between age and survival
+#https://rpubs.com/shivam2503/predictsurvival
 ggplot(data = titanicR, aes(x = age, fill = factor(survived))) + 
   geom_histogram() + 
   facet_grid(.~gender) + 
