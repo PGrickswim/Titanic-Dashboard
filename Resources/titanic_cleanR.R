@@ -56,9 +56,14 @@ ggplot(data = titanicR, aes(x = class, fill = factor(survived))) +
   labs(x = "Survival by Class") + 
   theme_bw()
 
-# First we will look at the relationship between age and survival
+#Relationship between age and survival
 #https://rpubs.com/shivam2503/predictsurvival
 ggplot(data = titanicR, aes(x = age, fill = factor(survived))) + 
   geom_histogram() + 
   facet_grid(.~gender) + 
   theme_bw()
+
+#Trying ANOVA
+aov(age ~ survived, data=titanicR)
+#To retrieve the p-values we have to wrap our aov function in a summary function
+summary(aov(age ~ survived, data=titanicR))
