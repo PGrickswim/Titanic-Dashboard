@@ -3,9 +3,13 @@ import pickle
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-# Use pickle to load in the pre-trained model.
+# Use pickle to load in the pre-trained model and fitted scaler.
 with open(f'model/titanic_model.pkl', 'rb') as f:
     model = pickle.load(f)
+
+with open(f'model/titanic_scaler.pkl', 'rb') as s:
+    scaler = pickle.load(s)
+
 app = flask.Flask(__name__, template_folder='templates')
 
 
@@ -114,10 +118,8 @@ def main():
                                                 'country_USA'],
                                        dtype=float)
         # Input data frame into model to predict values
-        # Creating StandardScaler instance
-        scaler = StandardScaler()
-        X_scaler = scaler.fit(input_variables)
-        input_variables_scaled = X_scaler.transform(input_variables)
+        # Use fitted scaler to transform input
+        input_variables_scaled = scaler.transform(input_variables)
 
         prediction = model.predict(input_variables_scaled)[0]
 
