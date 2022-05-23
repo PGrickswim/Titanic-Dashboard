@@ -1,6 +1,9 @@
 import flask
 import pickle
 import pandas as pd
+import psycopg2
+import requests
+from random import choice
 from sklearn.preprocessing import StandardScaler
 
 # Use pickle to load in the pre-trained model.
@@ -11,8 +14,13 @@ app = flask.Flask(__name__, template_folder='templates')
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
+    print(flask.request.method)
+    get_passengers_url = flask.url_for('getpassengers', _external=True)
+    all_passengers = requests.get(get_passengers_url).json()
+    random_passenger=choice(all_passengers)
     if flask.request.method == 'GET':
-        return(flask.render_template('main.html'))
+        return flask.render_template('main.html', random_passenger=random_passenger)
+
     if flask.request.method == 'POST':
         gender = flask.request.form['gender']
         age = flask.request.form['age']
@@ -133,9 +141,30 @@ def main():
                                                      'Embarked': embarked,
                                                      'Country': country
                                                      },
-                                     result=str(outcome)
+                                     result=str(outcome),
+                                     random_passenger=random_passenger
                                      )
 
+##################################################################################
+
+def get_db_connection():
+    conn = psycopg2.connect(host='localhost',
+                            database='titanic_project',
+                            user='postgres',
+                            password='postgres')
+    return conn
+
+@app.route('/api/getgringos')
+def getpassengers():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('select * from passenger_registry;')
+    passengers = cur.fetchall()
+    cur.close()
+    conn.close()
+    return flask.jsonify(passengers)
+
+##################################################################################
 
 if __name__ == '__main__':
     app.run()
