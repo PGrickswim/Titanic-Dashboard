@@ -24,9 +24,45 @@
     </div>
 
     <!-- Text talking about Titanic and lead in to analysis -->
-    <div class="jumbotron">
-        <p>The RMS Titanic was an iconic, heralded passenger liner that sunk over the North Atlantic ocean on April 15, 1912. When the ship - which weighed over 100 million pounds and was the largest in the world at the time - met its fate, over 68% of the passengers and crew perished; however, over 700 of the two-thousand-plus passengers were saved and survived the wreck. Survival depended on many factors, but some factors may have influenced survival more than others. Below, create a fictional character on the Titanic ship, and based on information such as class, sex, and more, find out if our unique model predicts that you would have survived or perished if you were on the Titanic's ill-fated maiden voyage!</p>
+        
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="rounded float-right">
+                    <img src="../static/images/leavingSouthampton.jpg" class="rounded float-right" width="auto" height="400">
+                </div>
+            </div>
+            <div class="col-md-5">
+                    <p>
+                        The RMS Titanic was an iconic, heralded passenger liner that sunk over the North Atlantic ocean on April 15, 1912. 
+                        When the ship - which weighed over 100 million pounds and was the largest in the world at the time - met its fate, 
+                        over 68% of the passengers and crew perished; however, over 700 of the two-thousand-plus passengers were saved and 
+                        survived the wreck. Survival depended on many factors, but some factors may have influenced survival more than others. 
+                        Below, create a fictional character on the Titanic ship, and based on information such as class, sex, and more, find out 
+                        if our unique model predicts that you would have survived or perished if you were on the Titanic's ill-fated maiden voyage!
+                    </p>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
     </div>
+    
+<br>
+
+        <div class="container">
+            <h4>Random passenger of the Day:</h4>
+            <p>Name: {{ random_passenger[0] }}</p>
+            <p>Gender: {{ random_passenger[1] }}</p>
+            <p>Age: {{ random_passenger[2] }}</p>
+            <p>Class: {{ random_passenger[3] }}</p>
+            <p>Departed from: {{ random_passenger[4] }}</p>
+            <p>Country of Origin: {{ random_passenger[5] }}</p>
+            <p>Ticket Number: {{ random_passenger[6] }}</p>
+            <p>Ticket Price: {{ random_passenger[7] }}</p>
+            <p>Survived: {{ random_passenger[10] }}</p>
+        </div>
+
+
 
     <!-- For Kira's Tableau -->
     <div class="container-fluid">
