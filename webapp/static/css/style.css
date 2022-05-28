@@ -21,10 +21,6 @@ form {
     flex-direction: row;
 }
 
-.card img {
-    width: 30%;
-}
-
 .passenger-container {
     margin: auto;
 }

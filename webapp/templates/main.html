@@ -62,16 +62,17 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
-                        <h5 class="card-title">{{ random_passenger[0] }}</h5>
-                            <p>Gender: {{ random_passenger[1] }}</p>
-                            <p>Age: {{ random_passenger[2] }}</p>
-                            <p>Class: {{ random_passenger[3] }}</p>
-                            <p>Departed from: {{ random_passenger[4] }}</p>
-                            <p>Country of Origin: {{ random_passenger[5] }}</p>
-                            <p>Ticket Number: {{ random_passenger[6] }}</p>
-                            <p>Ticket Price: {{ random_passenger[7] }}</p>
-                            <p>Survived: {{ random_passenger[10] }}</p>
-                        <a href="#" class="btn btn-primary">Generate Passenger</a>
+                            <h3>Random Passenger Generator</h3>
+                            <h5 class="card-title"><span id="passengerName">{{ random_passenger[0] }}</span></h5>
+                            <p>Gender: <span id="passengerGender">{{ random_passenger[1] }}</span></p>
+                            <p>Age: <span id="passengerAge">{{ random_passenger[2] }}</span></p>
+                            <p>Class: <span id="passengerClass">{{ random_passenger[3] }}</span></p>
+                            <p>Departed from: <span id="passengerPort">{{ random_passenger[4] }}</span></p>
+                            <p>Country of Origin: <span id="passengerCountry">{{ random_passenger[5] }}</span></p>
+                            <p>Ticket Number: <span id="passengerTicketNumber">{{ random_passenger[6] }}</span></p>
+                            <p>Ticket Price: <span id="passengerTicketPrice">{{ random_passenger[7] }}</span></p>
+                            <p>Survived:   <img id="passengerSurvived" src="{{ random_passenger[10] }}"/></p>
+                        <a class="btn btn-primary" onclick="fetchpassenger()">Generate Passenger</a>
                         </div>
                     </div>
                 </div>
@@ -198,5 +199,35 @@
             </div>
         </div>
     </div>
+
+<!-- JavaScript to render JSON passenger array object in HTML -->
+<script>
+    async function fetchpassenger(){
+        const response = await fetch('http://127.0.0.1:5000/api/getpassenger', {
+            
+        })
+        const json = await response.json()
+        console.log(json)
+        const passengerName = document.getElementById('passengerName')
+        passengerName.innerText = json[0]
+        const passengerGender = document.getElementById('passengerGender')
+        passengerGender.innerText = json[1]
+        const passengerAge = document.getElementById('passengerAge')
+        passengerAge.innerText = json[2]
+        const passengerClass = document.getElementById('passengerClass')
+        passengerClass.innerText = json[3]
+        const passengerPort = document.getElementById('passengerPort')
+        passengerPort.innerText = json[4]
+        const passengerCountry = document.getElementById('passengerCountry')
+        passengerCountry.innerText = json[5]
+        const passengerTicketNumber = document.getElementById('passengerTicketNumber')
+        passengerTicketNumber.innerText = json[6]
+        const passengerTicketPrice = document.getElementById('passengerTicketPrice')
+        passengerTicketPrice.innerText = json[7]
+        const passengerSurvived = document.getElementById('passengerSurvived')
+        passengerSurvived.src = json[10]
+        }
+</script>
+
 </body>
 </html>
