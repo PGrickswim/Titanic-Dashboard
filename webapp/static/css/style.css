@@ -1,26 +1,66 @@
 form {
-    margin: auto;
-    width: 35%;
-    border-color: black;
-    border-width: thick;
+	margin: auto;
+	width: 35%;
+	border-color: black;
+	border-width: thick;
 }
 
 .jumbotron {
-    background-image: url("../images/iceberg.JPG"); 
-    background-size: 100% 100%;
-    text-align: center;
-    }
+	background-image: url("../images/iceberg2.jpg");
+	background-size: 100% 100%;
+	text-align: center;
+	font-size: larger;
+	font-weight: bolder;
+	font-family: fantasy;
+}
 
 .result {
-    margin: auto;
-    width: 35%;
-    text-align: left;
+	margin: auto;
+	width: 35%;
+	text-align: left;
 }
 
 .card {
-    flex-direction: row;
+	flex-direction: row;
 }
 
 .passenger-container {
-    margin: auto;
+	margin: auto;
+	align-content: center;
+}
+
+hr {
+	border: 5;
+	color: aliceblue;
+}
+
+h2 {
+	color: white;
+	text-transform: uppercase;
+	font-family: sans-serif;
+	text-align: center;
+	font-weight: bolder;
+	align-content: center;
+	padding: 25px;
+}
+
+p {
+	color: aliceblue;
+	font-family: sans-serif;
+	text-align: center;
+	font-weight: bold;
+	align-content: center;
+	padding: 25px;
+	font-size: large;
+}
+
+div {
+	padding: 25px;
+}
+
+.description-card {
+	display: flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
