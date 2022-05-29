@@ -29,10 +29,12 @@ We will run statistical analysis to see how different groups fared based on fact
 * <strong>Then</strong>, we fit the model using the decision tree method
 ![Fitting The Model](https://github.com/PGrickswim/children-of-jupyter/blob/main/Resources/decision_tree_fit.png)
 * <strong>After That</strong>, we ran the model and arrived at the following conclusions:
+
 ![Confusion Matrix](https://github.com/PGrickswim/children-of-jupyter/blob/main/Resources/confusion_matrix.png)
 - Precision (True Positives divided by sum of True and False Positives): <strong>79%</strong>
 - Recall (True Positives divided by sum of True Postivies and False Negatives): <strong>90%</strong>
 - The Recall score is higher than precision, meaning our model is most likely to be incorrect when it rules out False Negative predictions. This means it's not as likely that the model would predict survival in an instance when the person actually would not survive.
+
 ![Accuracy Score, Classification Report](https://github.com/PGrickswim/children-of-jupyter/blob/main/Resources/accuracy_classification.png)
 * <strong>Finally</strong>, we saved the scaler to a file using the dependency <strong>pickle</strong>
 
