@@ -47,8 +47,8 @@
         </div>
     </div>
     
-<br>
-<br>
+    <br>
+    <br>
 
     <!-- GENERATE RANDOM PASSENGER -->
     <div class="passenger-container">
@@ -81,28 +81,41 @@
     </div>
 
 
-<br>
-<br>
+    <br>
+    <br>
 
     <!-- For Kira's Tableau -->
-    <div class="container-fluid">
-<div class='tableauPlaceholder' id='viz1653251403870' style='position: relative'><noscript><a href='#'><img alt='Survivability based on class association ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FinalProjectChildrenofJupyter&#47;Story1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='FinalProjectChildrenofJupyter&#47;Story1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FinalProjectChildrenofJupyter&#47;Story1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1653251403870');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h2>Statistical Analysis Using R</h2>
+            <p>The Chi-Squared Test for independence was utilized to for this analysis. It compares two variables in a contingency table to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each other.  We tested the variables of gender, class, embarkment, and age against the chance of survival.</p> 
+            <p align = "center"><iframe src="https://github.com/PGrickswim/children-of-jupyter/blob/7604c8261b2e891e619c5a392ebc773f464f170d/Resources/R%20Resources/analysis-output.txt" width="500" height="300" frameBorder="0"></iframe></p>
+            <p>Since all Chi-Squared results fell under the .05 threshold for p-value, we can reject the null hypothesis that the gender, age, class, and embarkment location did not affect survivability. In summation, we can confirm our alternative hypothesis, that gender, age, class, and embarkment did in fact play a role in the survival rate of passengers on the titanic.</p>
+            </div>
+        <div class="col-md-4"></div>
     </div>
+    <!-- <div class="col-md-6">
+        <div class='tableauPlaceholder' id='viz1653251403870' style='position: relative'><noscript><a href='#'><img alt='Survivability based on class association ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FinalProjectChildrenofJupyter&#47;Story1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='FinalProjectChildrenofJupyter&#47;Story1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FinalProjectChildrenofJupyter&#47;Story1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1653251403870');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div> -->
 
-<br>
-<br>
+    <br>
+    <br>
 
     <!-- For Erika's R Analysis -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4"></div>
-        </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h2>Statistical Analysis Using R</h2>
+            <p>The Chi-Squared Test for independence was utilized to for this analysis. It compares two variables in a contingency table to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each other.  We tested the variables of gender, class, embarkment, and age against the chance of survival.</p> 
+            <p align = "center"><iframe src="https://github.com/PGrickswim/children-of-jupyter/blob/7604c8261b2e891e619c5a392ebc773f464f170d/Resources/R%20Resources/analysis-output.txt" width="500" height="300" frameBorder="0"></iframe></p>
+            <p>Since all Chi-Squared results fell under the .05 threshold for p-value, we can reject the null hypothesis that the gender, age, class, and embarkment location did not affect survivability. In summation, we can confirm our alternative hypothesis, that gender, age, class, and embarkment did in fact play a role in the survival rate of passengers on the titanic.</p>
+            </div>
+        <div class="col-md-4"></div>
     </div>
 
-<br>
-<br>
+    <br>
+    <br>
     
     <!-- Webapp for passing user input to model -->
     <div class="container-fluid">
@@ -196,34 +209,34 @@
         </div>
     </div>
 
-<!-- JavaScript to render JSON passenger array object in HTML -->
-<script>
-    async function fetchpassenger(){
-        const response = await fetch('http://127.0.0.1:5000/api/getpassenger', {
-            
-        })
-        const json = await response.json()
-        console.log(json)
-        const passengerName = document.getElementById('passengerName')
-        passengerName.innerText = json[0]
-        const passengerGender = document.getElementById('passengerGender')
-        passengerGender.innerText = json[1]
-        const passengerAge = document.getElementById('passengerAge')
-        passengerAge.innerText = json[2]
-        const passengerClass = document.getElementById('passengerClass')
-        passengerClass.innerText = json[3]
-        const passengerPort = document.getElementById('passengerPort')
-        passengerPort.innerText = json[4]
-        const passengerCountry = document.getElementById('passengerCountry')
-        passengerCountry.innerText = json[5]
-        const passengerTicketNumber = document.getElementById('passengerTicketNumber')
-        passengerTicketNumber.innerText = json[6]
-        const passengerTicketPrice = document.getElementById('passengerTicketPrice')
-        passengerTicketPrice.innerText = json[7]
-        const passengerSurvived = document.getElementById('passengerSurvived')
-        passengerSurvived.src = json[10]
-        }
-</script>
+    <!-- JavaScript to render JSON passenger array object in HTML -->
+    <script>
+        async function fetchpassenger(){
+            const response = await fetch('http://127.0.0.1:5000/api/getpassenger', {
+                
+            })
+            const json = await response.json()
+            console.log(json)
+            const passengerName = document.getElementById('passengerName')
+            passengerName.innerText = json[0]
+            const passengerGender = document.getElementById('passengerGender')
+            passengerGender.innerText = json[1]
+            const passengerAge = document.getElementById('passengerAge')
+            passengerAge.innerText = json[2]
+            const passengerClass = document.getElementById('passengerClass')
+            passengerClass.innerText = json[3]
+            const passengerPort = document.getElementById('passengerPort')
+            passengerPort.innerText = json[4]
+            const passengerCountry = document.getElementById('passengerCountry')
+            passengerCountry.innerText = json[5]
+            const passengerTicketNumber = document.getElementById('passengerTicketNumber')
+            passengerTicketNumber.innerText = json[6]
+            const passengerTicketPrice = document.getElementById('passengerTicketPrice')
+            passengerTicketPrice.innerText = json[7]
+            const passengerSurvived = document.getElementById('passengerSurvived')
+            passengerSurvived.src = json[10]
+            }
+    </script>
 
 </body>
 </html>
