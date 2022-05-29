@@ -15,24 +15,28 @@
 </head>
 <body class="bg-light">
     <div class="wrapper">
-        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-            <a class="navbar-brand" href="main.html">Titanic Dashboard</a>
+        <nav class="navbar fixed-top navbar-dark bg-primary navbar-expand-lg">
+            <a class="navbar-brand" href="#main">Titanic Dashboard</a>
+            <a class="navbar-brand" href="#background-info">Background</a>
+            <a class="navbar-brand" href="#passenger-container">Passenger Generator</a>
+            <a class="navbar-brand" href="#charts">Interactive Charts</a>
+            <a class="navbar-brand" href="#statistical-analysis">Statistical Analysis</a>
+            <a class="navbar-brand" href="#model">Would You Survive?</a>
         </nav>
     </div>
-    <div class="jumbotron">
+    <div class="jumbotron" id="main">
         <h1 class="display-4">Titanic Dashboard</h1>
     </div>
 
-    <!-- Text talking about Titanic and lead in to analysis -->
-        
-    <div class="container-fluid">
+    <!-- Text talking about Titanic and lead in to analysis -->        
+    <div class="container-fluid" id="background-info">
         <div class="row">
             <div class="col-md-6">
                 <div class="rounded float-right">
                     <img src="../static/images/leavingSouthampton.jpg" class="rounded float-right" width="auto" height="400">
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                     <p>
                         The RMS Titanic was an iconic, heralded passenger liner that sunk over the North Atlantic ocean on April 15, 1912. 
                         When the ship - which weighed over 100 million pounds and was the largest in the world at the time - met its fate, 
@@ -42,8 +46,6 @@
                         if our unique model predicts that you would have survived or perished if you were on the Titanic's ill-fated maiden voyage!
                     </p>
             </div>
-            <div class="col-md-2">
-            </div>
         </div>
     </div>
     
@@ -51,28 +53,30 @@
     <br>
 
     <!-- GENERATE RANDOM PASSENGER -->
-    <div class="passenger-container">
-        <div class="container">
-            <div class="card" style="width: 55rem;">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="rounded float-right">
-                            <img class="card-img-top" src="../static/images/captainSmith.jpg" alt="Card image cap">
+    <div class="container-fluid" id="passenger-container">
+        <div class="passenger-container">
+            <div class="container">
+                <div class="card" style="width: 55rem;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="rounded float-right">
+                                <img class="card-img-top" src="../static/images/captainSmith.jpg" alt="Card image cap">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card-body">
-                            <h3>Random Passenger Generator</h3>
-                            <h5 class="card-title"><span id="passengerName">{{ random_passenger[0] }}</span></h5>
-                            <p>Gender: <span id="passengerGender">{{ random_passenger[1] }}</span></p>
-                            <p>Age: <span id="passengerAge">{{ random_passenger[2] }}</span></p>
-                            <p>Class: <span id="passengerClass">{{ random_passenger[3] }}</span></p>
-                            <p>Departed from: <span id="passengerPort">{{ random_passenger[4] }}</span></p>
-                            <p>Country of Origin: <span id="passengerCountry">{{ random_passenger[5] }}</span></p>
-                            <p>Ticket Number: <span id="passengerTicketNumber">{{ random_passenger[6] }}</span></p>
-                            <p>Ticket Price: <span id="passengerTicketPrice">{{ random_passenger[7] }}</span></p>
-                            <p>Survived:   <img id="passengerSurvived" src="{{ random_passenger[10] }}"/></p>
-                        <a class="btn btn-primary" onclick="fetchpassenger()">Generate Passenger</a>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h3>Random Passenger Generator</h3>
+                                <h5 class="card-title"><span id="passengerName">{{ random_passenger[0] }}</span></h5>
+                                <p>Gender: <span id="passengerGender">{{ random_passenger[1] }}</span></p>
+                                <p>Age: <span id="passengerAge">{{ random_passenger[2] }}</span></p>
+                                <p>Class: <span id="passengerClass">{{ random_passenger[3] }}</span></p>
+                                <p>Departed from: <span id="passengerPort">{{ random_passenger[4] }}</span></p>
+                                <p>Country of Origin: <span id="passengerCountry">{{ random_passenger[5] }}</span></p>
+                                <p>Ticket Number: <span id="passengerTicketNumber">{{ random_passenger[6] }}</span></p>
+                                <p>Ticket Price: <span id="passengerTicketPrice">{{ random_passenger[7] }}</span></p>
+                                <p>Survived:   <img id="passengerSurvived" src="{{ random_passenger[10] }}"/></p>
+                            <a class="btn btn-primary" onclick="fetchpassenger()">Generate Passenger</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -85,43 +89,66 @@
     <br>
 
     <!-- For Kira's Tableau -->
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <h2>Statistical Analysis Using R</h2>
-            <p>The Chi-Squared Test for independence was utilized to for this analysis. It compares two variables in a contingency table to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each other.  We tested the variables of gender, class, embarkment, and age against the chance of survival.</p> 
-            <p align = "center"><iframe src="https://github.com/PGrickswim/children-of-jupyter/blob/7604c8261b2e891e619c5a392ebc773f464f170d/Resources/R%20Resources/analysis-output.txt" width="500" height="300" frameBorder="0"></iframe></p>
-            <p>Since all Chi-Squared results fell under the .05 threshold for p-value, we can reject the null hypothesis that the gender, age, class, and embarkment location did not affect survivability. In summation, we can confirm our alternative hypothesis, that gender, age, class, and embarkment did in fact play a role in the survival rate of passengers on the titanic.</p>
+    <div class="container-fluid" id="charts">
+        <div class="row">
+            <div class="col-md-6">
+                <div class='tableauPlaceholder' id='viz1653841208137' style='position: relative'>
+                    <noscript>
+                        <a href='#'><img alt='Titanic Survival ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;KN&#47;KN4XTM5YN&#47;1_rss.png' style='border: none' />
+                        </a>
+                    </noscript>
+                    <object class='tableauViz'  style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='path' value='shared&#47;KN4XTM5YN' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;KN&#47;KN4XTM5YN&#47;1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
+                    </object>
+                </div>
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1653841208137');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    vizElement.style.width='100%';
+                    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
             </div>
-        <div class="col-md-4"></div>
+            <div class="col-md-6"></div>
+        </div>
     </div>
-    <!-- <div class="col-md-6">
-        <div class='tableauPlaceholder' id='viz1653251403870' style='position: relative'><noscript><a href='#'><img alt='Survivability based on class association ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FinalProjectChildrenofJupyter&#47;Story1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='FinalProjectChildrenofJupyter&#47;Story1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FinalProjectChildrenofJupyter&#47;Story1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1653251403870');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-    </div> -->
 
     <br>
     <br>
 
     <!-- For Erika's R Analysis -->
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <h2>Statistical Analysis Using R</h2>
-            <p>The Chi-Squared Test for independence was utilized to for this analysis. It compares two variables in a contingency table to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each other.  We tested the variables of gender, class, embarkment, and age against the chance of survival.</p> 
-            <p align = "center"><iframe src="https://github.com/PGrickswim/children-of-jupyter/blob/7604c8261b2e891e619c5a392ebc773f464f170d/Resources/R%20Resources/analysis-output.txt" width="500" height="300" frameBorder="0"></iframe></p>
-            <p>Since all Chi-Squared results fell under the .05 threshold for p-value, we can reject the null hypothesis that the gender, age, class, and embarkment location did not affect survivability. In summation, we can confirm our alternative hypothesis, that gender, age, class, and embarkment did in fact play a role in the survival rate of passengers on the titanic.</p>
+    <div class="container-fluid" id="statistical-analysis">
+        <div class="row">
+            <div class="col-md-6">
+                <iframe src="https://raw.githubusercontent.com/PGrickswim/children-of-jupyter/main/Resources/R%20Resources/analysis-output.txt" width="500" height="300" frameBorder="0"></iframe>
             </div>
-        <div class="col-md-4"></div>
+            <div class="col-md-6">
+                <h2>Statistical Analysis Using R</h2>
+                <p>The Chi-Squared Test for independence was utilized to for this analysis. It compares two variables in a contingency table to see if they are related. In a more general sense, it tests to see whether distributions of categorical variables differ from each other.  We tested the variables of gender, class, embarkment, and age against the chance of survival.</p>                 
+                <p>Since all Chi-Squared results fell under the .05 threshold for p-value, we can reject the null hypothesis that the gender, age, class, and embarkment location did not affect survivability. In summation, we can confirm our alternative hypothesis, that gender, age, class, and embarkment did in fact play a role in the survival rate of passengers on the titanic.</p>
+            </div>
+        </div>
     </div>
 
     <br>
     <br>
     
     <!-- Webapp for passing user input to model -->
-    <div class="container-fluid">
+    <div class="container-fluid" id="model">
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <form action="{{ url_for('main') }}" method="POST">
                     <fieldset>
                         <legend>Model Inputs:</legend>
@@ -190,7 +217,7 @@
                     </fieldset>
                 </form>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <!-- Prints model prediction from user input form -->                
                 <div class="result">
                 <h2>Results</h2>
