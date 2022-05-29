@@ -7,7 +7,14 @@ We will be using machine learning to create a model that predicts which passenge
 Our resources will come from the dataset contained in the ["stablelearner" r-package](https://search.r-project.org/CRAN/refmans/DALEX/html/titanic.html#:~:text=According%20to%20the%20website%201317,for%20a%20few%20regular%20passengers.) and stored as [CSV files](Resources/titanic.csv).
 
 ## Technologies Used
-We are tentatively planning to use a [decision tree model](Notebooks/Titanic-decision-tree.ipynb). For our database we will utilize pgAdmin and store [a backup file](Resources/titanic_project_db_backup.sql) of the database that project members can download and restore on their local machines. For an interactive dashboard, we want to use JavaScript.
+The project is broken into component pieces below. 
+
+* <strong>Machine Learning</strong>: We used a [decision tree model](Notebooks/Titanic-decision-tree.ipynb) 
+* <strong>Database Storage</strong>: We used a local instance of pgAdmin (PostgresSQL) to store [a backup file](Resources/titanic_project_db_backup.sql) of the database that project members can download and restore on their local machines. Users are encouraged to use the [create_database](Notebooks/create_database.ipynb) script in Jupyter Notebook to this end (see steps below) 
+* <strong>Statistical Analyses</strong>: RStudio
+* <strong>Interactive Dashboard</strong>: Tableau 
+* <strong>Website</strong>: Flask with API routes that render across Python, HTML and JavaScript (see usage details below)
+* <strong>Presentation</strong>: PowerPoint; Google Slides
 
 ## Questions We Hope to Answer
 We will run statistical analysis to see how different groups faired based on factors such as age, gender, socio-economic status, etc. We are hoping to add a section of our dashboard that allows users to input their own information and generate their probability of survival.
@@ -42,6 +49,12 @@ We plan to work asynchronously and use class times to go over what each member i
 * Navigate to the /webapp folder of the repo. Run the following command:
     ```
     flask run
+    ```
+
+    or
+
+    ```
+    python app.py
     ```
 
     The app should open on a localhost (likely http://127.0.0.1:5000/). Copy this address into your browser and enjoy!
