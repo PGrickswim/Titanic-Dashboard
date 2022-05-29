@@ -1,3 +1,4 @@
+from Notebooks import config
 import flask
 import pickle
 import pandas as pd
@@ -8,7 +9,6 @@ from sklearn.preprocessing import StandardScaler
 
 import sys
 sys.path.insert(0, '..')
-from Notebooks import config
 
 # Use pickle to load in the pre-trained model and fitted scaler.
 with open(f'model/titanic_model.pkl', 'rb') as f:
@@ -154,6 +154,8 @@ def main():
 ##################################################################################
 
 # Establish database connection (requires config.py file with database password)
+
+
 def get_db_connection():
     conn = psycopg2.connect(host='localhost',
                             database='titanic_project',
@@ -162,6 +164,8 @@ def get_db_connection():
     return conn
 
 # API route that gets all passengers from database
+
+
 @app.route('/api/getpassenger')
 def getpassengers():
     conn = get_db_connection()
@@ -174,34 +178,35 @@ def getpassengers():
 ##################################################################################
 
 # Format random passenger before converting to JSON for browser
-    random_passenger=list(choice(passengers))
-    if random_passenger[4]=='C':
-        random_passenger[4]='Cherbourg, France'
-    if random_passenger[4]=='S':
-        random_passenger[4]='Southampton, England'
-    if random_passenger[4]=='Q':
-        random_passenger[4]='Queenstown, Ireland'
-    if random_passenger[4]=='B':
-        random_passenger[4]='Belfast, Ireland'
-    
-    if random_passenger[6] is None:
-        random_passenger[6] ='N/A'
-    else: 
-        random_passenger[6]="{:,.0f}". format(random_passenger[6])
-    
-    if random_passenger[7] is None:
-        random_passenger[7] ='N/A'
-    else: 
-        random_passenger[7]="£{:,.2f}". format(random_passenger[7])
+    random_passenger = list(choice(passengers))
+    if random_passenger[4] == 'C':
+        random_passenger[4] = 'Cherbourg, France'
+    if random_passenger[4] == 'S':
+        random_passenger[4] = 'Southampton, England'
+    if random_passenger[4] == 'Q':
+        random_passenger[4] = 'Queenstown, Ireland'
+    if random_passenger[4] == 'B':
+        random_passenger[4] = 'Belfast, Ireland'
 
-    if random_passenger[10]=='no':
-        random_passenger[10]='../static/images/smallRedX.png'
-    if random_passenger[10]=='yes':
-        random_passenger[10]='../static/images/smallGreenCheck.png'
+    if random_passenger[6] is None:
+        random_passenger[6] = 'N/A'
+    else:
+        random_passenger[6] = "{:,.0f}". format(random_passenger[6])
+
+    if random_passenger[7] is None:
+        random_passenger[7] = 'N/A'
+    else:
+        random_passenger[7] = "£{:,.2f}". format(random_passenger[7])
+
+    if random_passenger[10] == 'no':
+        random_passenger[10] = '../static/images/smallRedX.png'
+    if random_passenger[10] == 'yes':
+        random_passenger[10] = '../static/images/smallGreenCheck.png'
 
     return flask.jsonify(random_passenger)
 
 ##################################################################################
+
 
 if __name__ == '__main__':
     app.run()
