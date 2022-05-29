@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Titanic Dashboard</title>
     <link
+      rel="icon"
+      type="image/x-icon"
+      href="static/images/iceberg_icon.png">
+    <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -35,7 +39,7 @@
             <div class="col-md-4">
                     <img src="../static/images/leavingSouthampton.jpg" class="border border-white rounded" width="auto" height="400">
             </div>
-            <div class="col-md-4 description-card" style="background-color: cornflowerblue; border-radius: 100px;">                
+            <div class="col-md-4 description-card" style="background-color: cornflowerblue;">                
                 <h2>Background</h2>
                 <p>
                     The RMS Titanic was an iconic, heralded passenger liner that sunk over the North Atlantic ocean on April 15, 1912. 
@@ -54,7 +58,7 @@
     <div class="container-fluid" id="passenger-container">
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-4 description-card" style="background-color: cornflowerblue; border-radius: 100px;">
+            <div class="col-md-2 description-card" style="background-color: cornflowerblue;">
                 <h2>Passenger Profiles</h2>
                 <p>
                     Over 2,000 crew members and passengers were on board the Titanic. 
@@ -62,31 +66,25 @@
                     including whether they survived or not.
                 </p>
             </div>
-            <div class="col-md-4">
-                <div class="passenger-container">
+            <div class="col-md-6 passenger-container">
                     <div class="container">
-                        <div class="card" style="width: 55rem;">             
-                                <div class="col-md-4">
-                                    <div class="rounded float-right">
-                                        <img class="img-fluid" src="../static/images/captainSmith.jpg" alt="Card image cap">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h3>Random Passenger Generator</h3>
-                                        <h5 class="card-title"><span id="passengerName">{{ random_passenger[0] }}</span></h5>
-                                        <br> Gender: <span id="passengerGender">{{ random_passenger[1] }}</span>
-                                        <br><br>Age: <span id="passengerAge">{{ random_passenger[2] }}</span>
-                                        <br><br>Class: <span id="passengerClass">{{ random_passenger[3] }}</span>
-                                        <br><br>Departed from: <span id="passengerPort">{{ random_passenger[4] }}</span>
-                                        <br><br>Country of Origin: <span id="passengerCountry">{{ random_passenger[5] }}</span>
-                                        <br><br>Ticket Number: <span id="passengerTicketNumber">{{ random_passenger[6] }}</span>
-                                        <br><br>Ticket Price: <span id="passengerTicketPrice">{{ random_passenger[7] }}</span>
-                                        <br><br>Survived:   <img id="passengerSurvived" src="{{ random_passenger[10] }}"/>
-                                        <br><br>
-                                        <a class="btn btn-primary" onclick="fetchpassenger()">Generate Passenger</a>
-                                    </div>
-                                </div>
+                        <div class="card" style="width: 55rem;">
+                            <div class="rounded float-right">
+                                <img class="img-fluid" src="../static/images/captainSmith.jpg" alt="Card image cap">
+                            </div>
+                            <div class="card-body">
+                                <h3>Random Passenger Generator</h3>
+                                <h5 class="card-title"><span id="passengerName">{{ random_passenger[0] }}</span></h5>
+                                <br> Gender: <span id="passengerGender">{{ random_passenger[1] }}</span>
+                                <br><br>Age: <span id="passengerAge">{{ random_passenger[2] }}</span>
+                                <br><br>Class: <span id="passengerClass">{{ random_passenger[3] }}</span>
+                                <br><br>Departed from: <span id="passengerPort">{{ random_passenger[4] }}</span>
+                                <br><br>Country of Origin: <span id="passengerCountry">{{ random_passenger[5] }}</span>
+                                <br><br>Ticket Number: <span id="passengerTicketNumber">{{ random_passenger[6] }}</span>
+                                <br><br>Ticket Price: <span id="passengerTicketPrice">{{ random_passenger[7] }}</span>
+                                <br><br>Survived:   <img id="passengerSurvived" src="{{ random_passenger[10] }}"/>
+                                <br><br>
+                                <a class="btn btn-primary" onclick="fetchpassenger()">Generate Passenger</a>                            
                             </div>
                         </div>
                     </div>
@@ -100,7 +98,7 @@
     <div class="container-fluid" id="charts">
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-4">
+            <div class="col-md-6"  style="background-color: white;">
                 <div class='tableauPlaceholder' id='viz1653841208137' style='position: relative'>
                     <noscript>
                         <a href='#'><img alt='Titanic Survival ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;KN&#47;KN4XTM5YN&#47;1_rss.png' style='border: none' />
@@ -131,7 +129,7 @@
                 </script>
             </div>
                        
-            <div class="col-md-4 description-card" style="background-color: cornflowerblue; border-radius: 100px;">
+            <div class="col-md-2 description-card" style="background-color: cornflowerblue;">
                 <h2>Plotting Survivability</h2>
                 <p>
                     Interactive graphs were made using Tableau Public. Click through the slides
@@ -147,7 +145,7 @@
     <div class="container-fluid" id="statistical-analysis">
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-4" style="background-color: cornflowerblue; border-radius: 100px;">
+            <div class="col-md-4" style="background-color: cornflowerblue;">
                 <h2>Statistical Analysis Using R</h2>
                 <p>The Chi-Squared Test for independence was utilized to for this analysis. 
                     It compares two variables in a contingency table to see if they are 
@@ -165,9 +163,7 @@
                 </p>
             </div>            
             <div class="col-md-4">
-                <code>
-                </code>
-                <!-- <iframe src="/Resources/R Resources/analysis-output.txt" title = "R Chi-Squared Test Output" width="500" height="300" frameBorder="0"></iframe> -->
+                <embed type="text/html" src="Routput.html" width="500" height="200">
             </div>
             <div class="col-md-2"></div>
         </div>
@@ -177,7 +173,7 @@
     <div class="container-fluid" id="model">
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8" style="background-color: cornflowerblue; border-radius: 100px;">
+            <div class="col-md-2" style="background-color: cornflowerblue;">
                 <h2>Predicting Survivability</h2>
                 <p>The full passenger and crew registry was used to train a decision 
                     tree model. Inputs to the model included features such as gender 
@@ -186,12 +182,7 @@
                     below to create a theoretical passenger and see whether they survive!
                 </p>
             </div>
-            <div class="col-md-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4"  style="background-color: white">
+            <div class="col-md-3"  style="background-color: white">
                 <form action="{{ url_for('main') }}" method="POST">
                     <fieldset>
                         <legend><h3>Model Inputs:</h3></legend>
@@ -260,7 +251,7 @@
                     </fieldset>
                 </form>
             </div>
-            <div class="col-md-4"  style="background-color: white">
+            <div class="col-md-3"  style="background-color: white">
                 <!-- Prints model prediction from user input form -->                
                 <div class="result">
                 <h3>Results</h3>
