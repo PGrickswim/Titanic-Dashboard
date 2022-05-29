@@ -16,3 +16,11 @@ form {
     width: 35%;
     text-align: left;
 }
+
+.card {
+    flex-direction: row;
+}
+
+.passenger-container {
+    margin: auto;
+}

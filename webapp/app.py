@@ -24,18 +24,8 @@ app = flask.Flask(__name__, template_folder='templates')
 def main():
     print(flask.request.method)
     get_passengers_url = flask.url_for('getpassengers', _external=True)
-    all_passengers = requests.get(get_passengers_url).json()
-    random_passenger=choice(all_passengers)
-    if random_passenger[4]=='C':
-        random_passenger[4]='Cherbourg, France'
-    if random_passenger[4]=='S':
-        random_passenger[4]='Southampton, England'
-    if random_passenger[4]=='Q':
-        random_passenger[4]='Queenstown, Ireland'
-    if random_passenger[4]=='B':
-        random_passenger[4]='Belfast, Ireland'
-    random_passenger[6]="{:,.0f}". format(random_passenger[6])
-    random_passenger[7]="£{:,.2f}". format(random_passenger[7])
+    random_passenger = requests.get(get_passengers_url).json()
+
     if flask.request.method == 'GET':
         return flask.render_template('main.html', random_passenger=random_passenger)
 
@@ -163,6 +153,7 @@ def main():
 
 ##################################################################################
 
+# Establish database connection (requires config.py file with database password)
 def get_db_connection():
     conn = psycopg2.connect(host='localhost',
                             database='titanic_project',
@@ -170,6 +161,7 @@ def get_db_connection():
                             password=config.db_password)
     return conn
 
+# API route that gets all passengers from database
 @app.route('/api/getpassenger')
 def getpassengers():
     conn = get_db_connection()
@@ -178,7 +170,36 @@ def getpassengers():
     passengers = cur.fetchall()
     cur.close()
     conn.close()
-    return flask.jsonify(passengers)
+
+##################################################################################
+
+# Format random passenger before converting to JSON for browser
+    random_passenger=list(choice(passengers))
+    if random_passenger[4]=='C':
+        random_passenger[4]='Cherbourg, France'
+    if random_passenger[4]=='S':
+        random_passenger[4]='Southampton, England'
+    if random_passenger[4]=='Q':
+        random_passenger[4]='Queenstown, Ireland'
+    if random_passenger[4]=='B':
+        random_passenger[4]='Belfast, Ireland'
+    
+    if random_passenger[6] is None:
+        random_passenger[6] ='N/A'
+    else: 
+        random_passenger[6]="{:,.0f}". format(random_passenger[6])
+    
+    if random_passenger[7] is None:
+        random_passenger[7] ='N/A'
+    else: 
+        random_passenger[7]="£{:,.2f}". format(random_passenger[7])
+
+    if random_passenger[10]=='no':
+        random_passenger[10]='../static/images/smallRedX.png'
+    if random_passenger[10]=='yes':
+        random_passenger[10]='../static/images/smallGreenCheck.png'
+
+    return flask.jsonify(random_passenger)
 
 ##################################################################################
 
