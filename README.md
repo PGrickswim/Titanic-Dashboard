@@ -13,8 +13,8 @@ The project is broken into component pieces below.
 
 * <strong>[Database Storage](#importing-titaniccsv-into-pgadmin)</strong>: We used a local instance of pgAdmin (PostgresSQL) to store [a backup file](Resources/titanic_project_db_backup.sql) of the database that project members can download and restore on their local machines. Users are encouraged to use the [create_database](Notebooks/create_database.ipynb) script in Jupyter Notebook to this end ([see steps below](#importing-titaniccsv-into-pgadmin))
 * <strong>[Machine Learning](#running-machine-learning-model)</strong>: We used a [decision tree model](Notebooks/Titanic-decision-tree.ipynb) 
-* <strong>Statistical Analyses</strong>: RStudio
-* <strong>Interactive Dashboard</strong>: Tableau 
+* <strong>Statistical Analyses</strong>: [RStudio](webapp/templates/Routput.html)
+* <strong>Interactive Dashboard</strong>: [Tableau](https://public.tableau.com/views/FinalProjectChildrenofJupyter/Story2?:language=en-US&:display_count=n&:origin=viz_share_link) 
 * <strong>[Website](#flask-running-the-application-locally)</strong>: Flask with API routes that render across Python, HTML and JavaScript (see usage details below)
 * <strong>Presentation</strong>: PowerPoint; [presentation](Titanic.pptx)
 
@@ -75,4 +75,5 @@ We will run statistical analysis to see how different groups fared based on fact
     ```
 
     The app should open on a localhost (likely http://127.0.0.1:5000/). Copy this address into your browser and enjoy!
+    ![dashboard](webapp/static/images/dashboard.png)
 * When you finish using the app, you can run ```Ctrl + C``` in the terminal to end the local connection. 
