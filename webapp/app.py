@@ -6,7 +6,9 @@ import requests
 from random import choice
 from sklearn.preprocessing import StandardScaler
 
-from config import db_password
+# import sys
+# sys.path.insert(0, '..')
+# from Notebooks import config
 
 # Use pickle to load in the pre-trained model and fitted scaler.
 with open(f'model/titanic_model.pkl', 'rb') as f:
@@ -158,7 +160,7 @@ def get_db_connection():
     conn = psycopg2.connect(host='localhost',
                             database='titanic_project',
                             user='postgres',
-                            password=db_password)
+                            password='paradise22')
     return conn
 
 # API route that gets all passengers from database
