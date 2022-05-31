@@ -1,4 +1,3 @@
-from Notebooks import config
 import flask
 import pickle
 import pandas as pd
@@ -9,6 +8,7 @@ from sklearn.preprocessing import StandardScaler
 
 import sys
 sys.path.insert(0, '..')
+from Notebooks import config
 
 # Use pickle to load in the pre-trained model and fitted scaler.
 with open(f'model/titanic_model.pkl', 'rb') as f:

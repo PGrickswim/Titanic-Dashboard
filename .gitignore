@@ -131,3 +131,5 @@ dmypy.json
 #Files
 Notebooks/config.py
 Notebooks/Titanic-decision-tree-encoding-test.ipynb
+webapp/static/images/iceberg.ai
+webapp/config.py
