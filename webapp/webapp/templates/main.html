@@ -145,7 +145,7 @@
     <div class="container-fluid" id="statistical-analysis">
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-4" style="background-color: cornflowerblue;">
+            <div class="col-md-4 description-card" style="background-color: cornflowerblue;">
                 <h2>Statistical Analysis Using R</h2>
                 <p>The Chi-Squared Test for independence was utilized to for this analysis. 
                     It compares two variables in a contingency table to see if they are 
@@ -183,7 +183,7 @@
                 </p>
             </div>
             <div class="col-md-3"  style="background-color: white">
-                <form action="{{ url_for('main') }}" method="POST">
+                <form action="{{ url_for('main.main1') }}" method="POST">
                     <fieldset>
                         <legend><h3>Model Inputs:</h3></legend>
                         Gender:
@@ -274,7 +274,7 @@
     <!-- JavaScript to render JSON passenger array object in HTML -->
     <script>
         async function fetchpassenger(){
-            const response = await fetch('http://127.0.0.1:5000/api/getpassenger', {
+            const response = await fetch('/api/getpassenger', {
                 
             })
             const json = await response.json()

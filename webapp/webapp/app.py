@@ -6,25 +6,21 @@ import requests
 from random import choice
 from sklearn.preprocessing import StandardScaler
 
-import sys
-sys.path.insert(0, '..')
-from Notebooks import config
-
-# Use pickle to load in the pre-trained model and fitted scaler.
-with open(f'model/titanic_model.pkl', 'rb') as f:
-    model = pickle.load(f)
-
-with open(f'model/titanic_scaler.pkl', 'rb') as s:
-    scaler = pickle.load(s)
-
-app = flask.Flask(__name__, template_folder='templates')
+main = flask.Blueprint('main', __name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
-def main():
+@main.route('/', methods=['GET', 'POST'])
+def main1():
     print(flask.request.method)
-    get_passengers_url = flask.url_for('getpassengers', _external=True)
+    get_passengers_url = flask.url_for('main.getpassengers', _external=True)
     random_passenger = requests.get(get_passengers_url).json()
+
+    # Use pickle to load in the pre-trained model and fitted scaler.
+    with open(f'webapp/model/titanic_model.pkl', 'rb') as f:
+        model = pickle.load(f)
+
+    with open(f'webapp/model/titanic_scaler.pkl', 'rb') as s:
+        scaler = pickle.load(s)
 
     if flask.request.method == 'GET':
         return flask.render_template('main.html', random_passenger=random_passenger)
@@ -85,27 +81,27 @@ def main():
 
         # Create dataframe out of input variables.
         input_variables = pd.DataFrame([[gender,
-                                         age,
-                                         class_dict['class_1st'],
-                                         class_dict['class_2nd'],
-                                         class_dict['class_3rd'],
-                                         class_dict['class_crew'],
-                                         embarked_dict['embarked_B'],
-                                         embarked_dict['embarked_C'],
-                                         embarked_dict['embarked_Q'],
-                                         embarked_dict['embarked_S'],
-                                         country_dict['country_AFR'],
-                                         country_dict['country_ASA'],
-                                         country_dict['country_AUS'],
-                                         country_dict['country_ENG'],
-                                         country_dict['country_EUR'],
-                                         country_dict['country_FIN'],
-                                         country_dict['country_IRL'],
-                                         country_dict['country_LBN'],
-                                         country_dict['country_NAM'],
-                                         country_dict['country_SAM'],
-                                         country_dict['country_SWE'],
-                                         country_dict['country_USA']]],
+                                        age,
+                                        class_dict['class_1st'],
+                                        class_dict['class_2nd'],
+                                        class_dict['class_3rd'],
+                                        class_dict['class_crew'],
+                                        embarked_dict['embarked_B'],
+                                        embarked_dict['embarked_C'],
+                                        embarked_dict['embarked_Q'],
+                                        embarked_dict['embarked_S'],
+                                        country_dict['country_AFR'],
+                                        country_dict['country_ASA'],
+                                        country_dict['country_AUS'],
+                                        country_dict['country_ENG'],
+                                        country_dict['country_EUR'],
+                                        country_dict['country_FIN'],
+                                        country_dict['country_IRL'],
+                                        country_dict['country_LBN'],
+                                        country_dict['country_NAM'],
+                                        country_dict['country_SAM'],
+                                        country_dict['country_SWE'],
+                                        country_dict['country_USA']]],
                                        columns=['gender',
                                                 'age',
                                                 'class_1st',
@@ -160,13 +156,13 @@ def get_db_connection():
     conn = psycopg2.connect(host='localhost',
                             database='titanic_project',
                             user='postgres',
-                            password=config.db_password)
+                            password='paradise22')
     return conn
 
 # API route that gets all passengers from database
 
 
-@app.route('/api/getpassenger')
+@main.route('/api/getpassenger')
 def getpassengers():
     conn = get_db_connection()
     cur = conn.cursor()
@@ -175,9 +171,7 @@ def getpassengers():
     cur.close()
     conn.close()
 
-##################################################################################
-
-# Format random passenger before converting to JSON for browser
+    # Format random passenger before converting to JSON for browser
     random_passenger = list(choice(passengers))
     if random_passenger[4] == 'C':
         random_passenger[4] = 'Cherbourg, France'
@@ -204,9 +198,3 @@ def getpassengers():
         random_passenger[10] = '../static/images/smallGreenCheck.png'
 
     return flask.jsonify(random_passenger)
-
-##################################################################################
-
-
-if __name__ == '__main__':
-    app.run()
