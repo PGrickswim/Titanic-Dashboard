@@ -1,3 +1,4 @@
+from Notebooks import config
 import flask
 import pickle
 import pandas as pd
@@ -5,6 +6,9 @@ import psycopg2
 import requests
 from random import choice
 from sklearn.preprocessing import StandardScaler
+
+import sys
+sys.path.insert(0, '../../')
 
 main = flask.Blueprint('main', __name__)
 
@@ -156,7 +160,7 @@ def get_db_connection():
     conn = psycopg2.connect(host='localhost',
                             database='titanic_project',
                             user='postgres',
-                            password='paradise22')
+                            password=config.db_password)
     return conn
 
 # API route that gets all passengers from database
