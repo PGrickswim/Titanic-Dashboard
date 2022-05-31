@@ -7,9 +7,6 @@ import requests
 from random import choice
 from sklearn.preprocessing import StandardScaler
 
-import sys
-sys.path.insert(0, '../../')
-
 main = flask.Blueprint('main', __name__)
 
 
