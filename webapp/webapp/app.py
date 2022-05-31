@@ -1,4 +1,3 @@
-from Notebooks import config
 import flask
 import pickle
 import pandas as pd
@@ -9,6 +8,7 @@ from sklearn.preprocessing import StandardScaler
 
 import sys
 sys.path.insert(0, '../../')
+from Notebooks import config
 
 main = flask.Blueprint('main', __name__)
 
