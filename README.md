@@ -13,7 +13,7 @@ The project is broken into component pieces below.
 
 * <strong>[Database Storage](#importing-titaniccsv-into-pgadmin)</strong>: We used a local instance of pgAdmin (PostgresSQL) to store [a backup file](Resources/titanic_project_db_backup.sql) of the database that project members can download and restore on their local machines. Users are encouraged to use the [create_database](Notebooks/create_database.ipynb) script in Jupyter Notebook to this end ([see steps below](#importing-titaniccsv-into-pgadmin))
 * <strong>[Machine Learning](#running-machine-learning-model)</strong>: We used a [decision tree model](Notebooks/Titanic-decision-tree.ipynb) 
-* <strong>Statistical Analyses</strong>: [RStudio](webapp/templates/Routput.html)
+* <strong>Statistical Analyses</strong>: [RStudio](webapp/webapp/templates/Routput.html)
 * <strong>Interactive Dashboard</strong>: [Tableau](https://public.tableau.com/views/FinalProjectChildrenofJupyter/Story2?:language=en-US&:display_count=n&:origin=viz_share_link) 
 * <strong>[Website](#flask-running-the-application-locally)</strong>: Flask with API routes that render across Python, HTML and JavaScript (see usage details below)
 * <strong>Presentation</strong>: PowerPoint; [presentation](Titanic.pptx)
@@ -30,14 +30,14 @@ We will run statistical analysis to see how different groups fared based on fact
 * Open a command line terminal in this same Notebooks folder and run ```jupyter notebook```
 * Open the ```create_database.ipynb``` file and execute the four cells.
   * The script will create 2 different tables: passenger_registry and embarked.
-![create_database.ipynb](webapp/static/images/create_database.png)
+![create_database.ipynb](webapp/webapp/static/images/create_database.png)
 * Refresh your database. You should see both new tables ```passenger_registry``` and ```embarked```
     * To confirm the data imported properly, run the following query: 
         ```
         select * from passenger_registry where country='United States';
         ```
         You should see 264 records returned. 
-    ![pgAdmin database](webapp/static/images/pgAdmin.png)
+    ![pgAdmin database](webapp/webapp/static/images/pgAdmin.png)
 ### Running Machine Learning Model
 
 * <strong>First</strong>, we cleaned the data and ensured it was ready for entry into the model
@@ -75,5 +75,5 @@ We will run statistical analysis to see how different groups fared based on fact
     ```
 
     The app should open on a localhost (likely http://127.0.0.1:5000/). Copy this address into your browser and enjoy!
-    ![dashboard](webapp/static/images/dashboard.png)
+    ![dashboard](webapp/webapp/static/images/dashboard.png)
 * When you finish using the app, you can run ```Ctrl + C``` in the terminal to end the local connection. 
