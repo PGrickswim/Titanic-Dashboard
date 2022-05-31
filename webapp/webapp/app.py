@@ -1,4 +1,4 @@
-from config import db_password
+from .config import db_password
 import flask
 import pickle
 import pandas as pd
