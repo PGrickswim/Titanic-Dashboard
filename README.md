@@ -71,7 +71,7 @@ We will run statistical analysis to see how different groups fared based on fact
     or
 
     ```
-    python app.py
+    python wsgi.py
     ```
 
     The app should open on a localhost (likely http://127.0.0.1:5000/). Copy this address into your browser and enjoy!
