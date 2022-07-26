@@ -1,5 +1,4 @@
-# Team Children of Jupyter Final Project
-Group 1 Final Project: Data Analytics Boot Camp
+# Titanic Dashboard
 
 ## Project Outline
 
